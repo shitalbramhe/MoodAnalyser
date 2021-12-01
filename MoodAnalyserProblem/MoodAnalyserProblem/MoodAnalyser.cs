@@ -16,10 +16,17 @@ namespace MoodAnalyserProblem
         }
         public string AnalyserMood()
         {
-            if (this.Message.Contains("Sad"))
-                return "Sad";
-            else
+            try
+            {
+                if (this.Message.Contains("Sad"))
+                    return "Sad";
+                else
+                    return "Happy";
+            }
+            catch
+            {
                 return "Happy";
+            }
         }
 
     }
