@@ -18,12 +18,16 @@ namespace MoodAnalyserProblem
         {
             try
             {
-                if (this.Message.Contains("Sad"))
+                if (this.Message.Equals(String.Empty))
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.ENTERED_EMPTY, "Mood should not be Empty");
+                }
+                    if (this.Message.Contains("Sad"))
                     return "Sad";
                 else
                     return "Happy";
             }
-            catch
+            catch(NullReferenceException)
             {
                 return "Happy";
             }
